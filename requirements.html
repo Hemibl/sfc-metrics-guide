@@ -1,0 +1,242 @@
+<title>SFC — דרישות אנליטיקה מול סטטוס</title>
+<style>
+:root {
+  --text:    #1A1928;
+  --muted:   #6B697E;
+  --border:  #E0DDD6;
+  --bg:      #F7F6F3;
+  --white:   #FFFFFF;
+  --cat:     #3D3270;
+  --cat-lt:  #EEEAFF;
+  --green:   #1F7250;  --green-lt: #E2F4EC;
+  --amber:   #995F00;  --amber-lt: #FDF3D6;
+  --red:     #A83A1E;  --red-lt:   #FCEAE4;
+  --gray:    #4B5563;  --gray-lt:  #F3F4F6;
+  --blue:    #1E40AF;  --blue-lt:  #DBEAFE;
+  --ff: -apple-system, 'Segoe UI', system-ui, Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--ff); font-size: 14px; line-height: 1.5; color: var(--text); background: var(--bg); direction: rtl; }
+
+.hdr { background: #2C2548; color: #fff; padding: 28px 40px 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.hdr-title { font-size: 22px; font-weight: 700; }
+.hdr-sub   { color: rgba(255,255,255,.55); font-size: 13px; margin-top: 4px; }
+.hdr-meta  { text-align: left; color: rgba(255,255,255,.45); font-size: 12px; line-height: 1.7; white-space: nowrap; }
+
+.main { max-width: 1100px; margin: 0 auto; padding: 36px 28px 60px; }
+
+.chip {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 10px; white-space: nowrap;
+}
+.c-green { background: var(--green-lt); color: var(--green); }
+.c-amber { background: var(--amber-lt); color: var(--amber); }
+.c-red   { background: var(--red-lt);   color: var(--red); }
+.c-gray  { background: var(--gray-lt);  color: var(--gray); }
+.c-blue  { background: var(--blue-lt);  color: var(--blue); }
+
+.src-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 6px; letter-spacing: .04em;
+}
+.src-spec  { background: #2C2548; color: #fff; }
+.src-thread { background: #1F7250; color: #fff; }
+.src-ga4   { background: #E0DDD6; color: #4B5563; }
+
+.tbl-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 40px; }
+table { width: 100%; border-collapse: collapse; }
+thead th { background: #F0EEE9; text-align: right; padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--border); white-space: nowrap; }
+tbody td { padding: 11px 16px; border-bottom: 1px solid #F0EDE7; vertical-align: top; font-size: 13.5px; line-height: 1.45; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: #FAFAF8; }
+.cat-row td { background: var(--cat-lt); color: var(--cat); font-weight: 700; font-size: 12px; padding: 8px 16px; border-bottom: 1px solid #D6D0FF; }
+.req-name { font-weight: 600; margin-bottom: 3px; }
+.req-note { font-size: 12px; color: var(--muted); margin-top: 4px; font-style: italic; }
+.stat-col { text-align: center; vertical-align: middle !important; min-width: 110px; }
+.src-col  { text-align: center; vertical-align: middle !important; min-width: 90px; }
+
+.callout {
+  background: var(--white); border: 1px solid var(--border); border-right: 4px solid var(--amber);
+  border-radius: 8px; padding: 14px 18px; margin-bottom: 32px; font-size: 13.5px; line-height: 1.65;
+}
+.callout strong { color: var(--amber); }
+
+.sig { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.sig strong { color: var(--text); font-size: 14px; display: block; }
+
+@media (max-width: 700px) {
+  .hdr { flex-direction: column; align-items: flex-start; padding: 20px; }
+  .main { padding: 20px 14px; }
+}
+</style>
+
+<header class="hdr">
+  <div>
+    <div class="hdr-title">SFC — דרישות אנליטיקה מול סטטוס</div>
+    <div class="hdr-sub">מה הובטח, מה זמין, ומה נדרש לפי האפיון</div>
+  </div>
+  <div class="hdr-meta">
+    מישהי לקפה<br>
+    עודכן: 24.6.2026<br>
+    לשימוש פנימי
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="callout">
+    <strong>מקרא מקורות:</strong>
+    &nbsp;<span class="src-tag src-spec">אפיון</span> = הופיע במסמך האפיון הרשמי — חייב להיות בדשבורד.
+    &nbsp;<span class="src-tag src-thread">שרשור</span> = אושר בהתכתבות עם גלית (29.12.25) — הובטח.
+    &nbsp;<span class="src-tag src-ga4">GA4</span> = זמין מטבעו ב-GA4, הוזכר בהצעה הראשונית — לא חובה בדשבורד.
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:28%">דרישה</th>
+          <th style="width:8%">מקור</th>
+          <th style="width:32%">הערות</th>
+          <th style="width:16%; text-align:center">סטטוס בדשבורד</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="cat-row"><td colspan="4">👥 משתמשות</td></tr>
+
+        <tr>
+          <td><div class="req-name">כמות משתמשות חדשות</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>נשים שנרשמו לראשונה בתקופה הנבחרת</td>
+          <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">כמות משתמשות לפי מאפיינים</div><div class="req-note">device, OS, language, demographics</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>מאפיינים כגון סוג מכשיר, שפה, גיל — זמינים ב-GA4, לא בדשבורד כרגע</td>
+          <td class="stat-col"><span class="chip c-red">❌ חסר</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">כמות משתמשות שעזבו / Churn</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>נשים שלא חזרו לאחר תקופה מוגדרת — קשור ל-Retention</td>
+          <td class="stat-col"><span class="chip c-red">❌ חסר</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">משתמשות פעילות vs רק רשומות</div></td>
+          <td class="src-col"><span class="src-tag src-thread">שרשור</span></td>
+          <td>נשים שקבעו פגישה לעומת נשים שנרשמו ולא עשו דבר</td>
+          <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">שימור משתמשות / Retention</div></td>
+          <td class="src-col"><span class="src-tag src-ga4">GA4</span></td>
+          <td>חזרה לאפליקציה אחרי 7 / 14 / 30 יום — זמין ב-GA4, לא בדשבורד</td>
+          <td class="stat-col"><span class="chip c-gray">📊 GA4 בלבד</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">הורדות מגוגל / אפל</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>פירוט Android vs iOS — PR #2 פתוח, ממתין למיזוג ע"י David</td>
+          <td class="stat-col"><span class="chip c-amber">🔄 PR פתוח</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="4">☕ פגישות</td></tr>
+
+        <tr>
+          <td><div class="req-name">פגישות שנקבעו</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td></td>
+          <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">פגישות שהתקיימו בפועל</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>לפחות אחת מהמשתתפות אישרה "הגעתי"</td>
+          <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">פגישות מוצלחות</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>פגישות שדורגו חיובית — ניתן להסיק משביעות הרצון</td>
+          <td class="stat-col"><span class="chip c-amber">🔄 חלקי</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">פגישות לא מוצלחות / לא ידוע</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>לא מוצלחות = דורגו גרוע. לא ידוע = ללא דירוג כלל</td>
+          <td class="stat-col"><span class="chip c-red">❌ חסר</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">שביעות רצון מפגישות</div></td>
+          <td class="src-col"><span class="src-tag src-thread">שרשור</span></td>
+          <td>% חיובי / ניטרלי / שלילי מתוך הסקר שאחרי הפגישה</td>
+          <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="4">📱 שימוש ומעורבות</td></tr>
+
+        <tr>
+          <td><div class="req-name">זמן שהייה בכל מסך</div></td>
+          <td class="src-col"><span class="src-tag src-spec">אפיון</span></td>
+          <td>Screen Time לפי מסך — מוצג כש-יהיה מספיק נתונים</td>
+          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">זמן שימוש כולל / Engagement Time</div></td>
+          <td class="src-col"><span class="src-tag src-ga4">GA4</span></td>
+          <td>זמן ממוצע לסשן — הוזכר בהצעה הראשונית, זמין ב-GA4</td>
+          <td class="stat-col"><span class="chip c-gray">📊 GA4 בלבד</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">מידע טכני (מכשיר / OS / גרסה / שפה)</div></td>
+          <td class="src-col"><span class="src-tag src-ga4">GA4</span></td>
+          <td>הוזכר בהצעה הראשונית, זמין ב-GA4 — לא חייב בדשבורד</td>
+          <td class="stat-col"><span class="chip c-gray">📊 GA4 בלבד</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">נתונים דמוגרפיים</div></td>
+          <td class="src-col"><span class="src-tag src-ga4">GA4</span></td>
+          <td>בכפוף להגדרות Privacy ואישורי המשתמשות</td>
+          <td class="stat-col"><span class="chip c-gray">📊 GA4 בלבד</span></td>
+        </tr>
+
+        <tr class="cat-row"><td colspan="4">📋 שאלון ותוכן</td></tr>
+
+        <tr>
+          <td><div class="req-name">% מילוי שאלון</div></td>
+          <td class="src-col"><span class="src-tag src-thread">שרשור</span></td>
+          <td>ידני דרך FireCMS — אין אוטומציה</td>
+          <td class="stat-col"><span class="chip c-amber">🔄 CMS ידני</span></td>
+        </tr>
+
+        <tr>
+          <td><div class="req-name">תחומי עניין פופולריים</div></td>
+          <td class="src-col"><span class="src-tag src-thread">שרשור</span></td>
+          <td>הוגדר בשרשור (29.12.25) כ-"אובר-קיל לשלב זה" — מחוץ לסקופ</td>
+          <td class="stat-col"><span class="chip c-gray">⏸ מחוץ לסקופ</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sig">
+    <strong>חמי בן לביא</strong>
+    Head of Product Operations · 200Apps
+  </div>
+
+</main>
