@@ -8,7 +8,7 @@
   --bg:      #F7F6F3;
   --white:   #FFFFFF;
 
-  --cat:     #3D3270;   /* category header */
+  --cat:     #3D3270;
   --cat-lt:  #EEEAFF;
 
   --green:   #1F7250;
@@ -49,17 +49,7 @@ body {
 /* ── MAIN ── */
 .main { max-width: 1060px; margin: 0 auto; padding: 36px 28px 60px; }
 
-/* ── LEGEND ── */
-.legend {
-  display: flex; gap: 20px; flex-wrap: wrap;
-  margin-bottom: 28px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px 20px;
-  align-items: center;
-}
-.legend-title { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+/* ── CHIP ── */
 .chip {
   display: inline-block;
   font-size: 11px; font-weight: 700;
@@ -103,7 +93,6 @@ tbody td {
 tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover td { background: #FAFAF8; }
 
-/* category row */
 .cat-row td {
   background: var(--cat-lt);
   color: var(--cat);
@@ -146,7 +135,8 @@ tbody tr:hover td { background: #FAFAF8; }
   padding: 18px 18px 16px;
 }
 .card-emoji { font-size: 22px; margin-bottom: 8px; }
-.card-name  { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.card-name  { font-weight: 700; font-size: 14px; margin-bottom: 2px; }
+.card-name-he { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
 .card-path  {
   font-family: 'Courier New', monospace;
   font-size: 11px; color: var(--muted);
@@ -187,42 +177,32 @@ tbody tr:hover td { background: #FAFAF8; }
   </div>
   <div class="hdr-meta">
     מישהי לקפה<br>
-    עודכן: 23.6.2026<br>
-    הוכן עבור: אלכס
+    עודכן: 24.6.2026<br>
+    הוכן עבור: גלית | מישהי לקפה
   </div>
 </header>
 
 <main class="main">
-
-  <!-- LEGEND -->
-  <div class="legend">
-    <span class="legend-title">מקרא:</span>
-    <span class="chip c-green">✅ זמין בדשבורד</span>
-    <span class="chip c-amber">🔄 זמין ב-GA4 / בטיפול</span>
-    <span class="chip c-red">❌ לא ממומש</span>
-  </div>
 
   <!-- MAIN TABLE -->
   <div class="tbl-wrap">
     <table>
       <thead>
         <tr>
-          <th style="width:22%">מטריקה</th>
-          <th style="width:26%">מה ניתן להבין</th>
-          <th style="width:12%">ממשק</th>
-          <th style="width:30%">נתיב גישה</th>
+          <th style="width:24%">מטריקה</th>
+          <th style="width:32%">מה ניתן להבין</th>
+          <th style="width:34%">נתיב גישה</th>
           <th style="width:10%; text-align:center">סטטוס</th>
         </tr>
       </thead>
       <tbody>
 
         <!-- CAT: USERS -->
-        <tr class="cat-row"><td colspan="5">👥 משתמשות</td></tr>
+        <tr class="cat-row"><td colspan="4">👥 משתמשות</td></tr>
 
         <tr>
           <td><div class="metric-name">סה"כ משתמשות</div><div class="metric-orig">Total Users</div></td>
           <td>כמה נשים פתחו האפליקציה אי פעם (מדד גודל קהילה)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/overview" target="_blank">analytics-sfc.netlify.app</a><br>→ Executive Overview → "Total Users"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -230,7 +210,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">משתמשות חדשות</div><div class="metric-orig">New Users</div></td>
           <td>כמה נשים הצטרפו לראשונה בתקופה שנבחרה</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/growth" target="_blank">analytics-sfc.netlify.app</a><br>→ User Growth → "New Users"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -238,7 +217,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">משתמשות פעילות</div><div class="metric-orig">Active Users</div></td>
           <td>כמה נשים פתחו האפליקציה בפועל בתקופה (מדד פעילות)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/growth" target="_blank">analytics-sfc.netlify.app</a><br>→ User Growth → "Active Users"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -246,7 +224,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">פתיחות אפליקציה</div><div class="metric-orig">Sessions</div></td>
           <td>כמה פעמים נפתחה האפליקציה בסה"כ (מדד תדירות)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/growth" target="_blank">analytics-sfc.netlify.app</a><br>→ User Growth → "Sessions"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -254,34 +231,30 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">נשים שהורידו דרך גוגל / אפל</div><div class="metric-orig">Downloads by Store</div></td>
           <td>כמה הורידו מ-Google Play וכמה מ-App Store (מאיפה מגיעות)</td>
-          <td>GA4</td>
-          <td><div class="nav-path">Executive Overview → כרטיס "הורדות האפליקציה"<br>→ פירוט Android / iOS בטולטיפ</div></td>
+          <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/overview" target="_blank">analytics-sfc.netlify.app</a><br>→ Executive Overview → "הורדות האפליקציה"<br>→ פירוט Android / iOS בטולטיפ</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
 
         <tr>
           <td><div class="metric-name">שימור משתמשות</div><div class="metric-orig">Retention / Churn</div></td>
           <td>כמה % מהנשים חוזרות לאפליקציה אחרי 7, 14, 30 יום</td>
-          <td>GA4</td>
           <td><div class="nav-path">console.firebase.google.com<br>→ Analytics → Retention</div></td>
-          <td class="stat-col"><span class="chip c-amber">🔄 GA4 בלבד</span></td>
+          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
         </tr>
 
         <tr>
           <td><div class="metric-name">זמן שימוש בכל מסך</div><div class="metric-orig">Screen Time</div></td>
           <td>באיזה מסכים המשתמשות מבלות זמן (תיעדוף UX)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/growth" target="_blank">analytics-sfc.netlify.app</a><br>→ User Growth → "Most-Visited Screens"<br><em style="color:#995F00">(מוצג כשיהיה מספיק נתונים)</em></div></td>
           <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
         </tr>
 
         <!-- CAT: CONNECTIONS & MEETINGS -->
-        <tr class="cat-row"><td colspan="5">☕ חיבורים ופגישות</td></tr>
+        <tr class="cat-row"><td colspan="4">☕ חיבורים ופגישות</td></tr>
 
         <tr>
           <td><div class="metric-name">שיחות שנפתחו</div><div class="metric-orig">Matches Started</div></td>
           <td>כמה נשים שלחו בקשת "נפגש לקפה" (ניסיונות חיבור)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/overview" target="_blank">analytics-sfc.netlify.app</a><br>→ Executive Overview → "Matches Started"<br>→ Matching Funnel (גרף מלא)</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -289,7 +262,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">חיבורים שהתקבלו</div><div class="metric-orig">Successful Matches</div></td>
           <td>כמה בקשות חיבור קיבלו אישור מהצד השני</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/funnel" target="_blank">analytics-sfc.netlify.app</a><br>→ Matching Funnel → "Successful Matches"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -297,7 +269,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">פגישות שנקבעו</div><div class="metric-orig">Meetings Scheduled</div></td>
           <td>כמה פגישות קפה נקבעו דרך האפליקציה</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/meetings" target="_blank">analytics-sfc.netlify.app</a><br>→ Meetings &amp; Ratings → "Meetings Scheduled"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -305,7 +276,6 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">פגישות שהתקיימו</div><div class="metric-orig">Meetings Completed</div></td>
           <td>כמה פגישות קפה התקיימו בפועל (אחת לפחות מהמשתתפות אישרה "הגעתי")</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/meetings" target="_blank">analytics-sfc.netlify.app</a><br>→ Meetings &amp; Ratings → "Meetings Completed"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -313,18 +283,16 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">נשים פעילות vs. רשומות בלבד</div><div class="metric-orig">Active vs. Registered Only</div></td>
           <td>מתוך כל הנרשמות - כמה קבעו פגישה, כמה רק רשומות ולא פועלות</td>
-          <td>דשבורד</td>
-          <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/funnel" target="_blank">analytics-sfc.netlify.app</a><br>→ Matching Funnel<br>(ה-Funnel מראה Total Users → Matches Started → Meetings Scheduled)</div></td>
+          <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/funnel" target="_blank">analytics-sfc.netlify.app</a><br>→ Matching Funnel<br>(Total Users → Matches Started → Meetings Scheduled)</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
 
         <!-- CAT: SATISFACTION -->
-        <tr class="cat-row"><td colspan="5">⭐ שביעות רצון</td></tr>
+        <tr class="cat-row"><td colspan="4">⭐ שביעות רצון</td></tr>
 
         <tr>
           <td><div class="metric-name">שביעות רצון מפגישות</div><div class="metric-orig">Meeting Satisfaction</div></td>
           <td>% פגישות שקיבלו דירוג חיובי (טוב/ניטראלי/גרוע)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/meetings" target="_blank">analytics-sfc.netlify.app</a><br>→ Meetings &amp; Ratings → "Meeting Satisfaction"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -332,26 +300,16 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">מספר דירוגים</div><div class="metric-orig">Meeting Ratings Count</div></td>
           <td>כמה נשים בפועל מילאו את הסקר אחרי הפגישה</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/meetings" target="_blank">analytics-sfc.netlify.app</a><br>→ Meetings &amp; Ratings → "Meeting Ratings"</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
 
-        <tr>
-          <td><div class="metric-name">ציון ממוצע פגישות (כוכבים)</div><div class="metric-orig">rating_value avg</div></td>
-          <td>ממוצע כוכבים מ-1 עד 5 לכל פגישה שדורגה</td>
-          <td>GA4</td>
-          <td><div class="nav-path">analytics.google.com → SFC Mobile<br>→ Reports → Events → rating_value<br><em style="color:#995F00">(בטיפול - Event ממומש, טרם בדשבורד)</em></div></td>
-          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
-        </tr>
-
         <!-- CAT: ENGAGEMENT -->
-        <tr class="cat-row"><td colspan="5">💬 מעורבות ותקשורת</td></tr>
+        <tr class="cat-row"><td colspan="4">💬 מעורבות ותקשורת</td></tr>
 
         <tr>
           <td><div class="metric-name">הודעות שנשלחו</div><div class="metric-orig">Messages Sent</div></td>
           <td>כמה הודעות צ'אט נשלחו בין נשים (מדד תקשורת)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/chat" target="_blank">analytics-sfc.netlify.app</a><br>→ Chat Activity</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
@@ -359,18 +317,16 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">קצב פתיחת התראות</div><div class="metric-orig">Notification Open Rate</div></td>
           <td>% מהתראות Push שהובילו לפתיחת האפליקציה (כמה ההתראות אפקטיביות)</td>
-          <td>דשבורד</td>
           <td><div class="nav-path"><a href="https://analytics-sfc.netlify.app/#/notifications" target="_blank">analytics-sfc.netlify.app</a><br>→ Notifications</div></td>
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
 
-        <!-- CAT: NOT AVAILABLE -->
-        <tr class="cat-row"><td colspan="5">📋 לא זמין / ידני בלבד</td></tr>
+        <!-- CAT: CMS / MANUAL -->
+        <tr class="cat-row"><td colspan="4">📋 ממשק CMS</td></tr>
 
         <tr>
           <td><div class="metric-name">% מילוי שאלון</div><div class="metric-orig">Questionnaire Completion Rate</div></td>
           <td>כמה נשים מילאו שאלון מלא לעומת חלקי</td>
-          <td>CMS</td>
           <td><div class="nav-path">app.firecms.co → Someone for Coffee<br>→ Users → Filter: Questionnaire Level<br><em style="color:#995F00">(ידני - אין אוטומציה)</em></div></td>
           <td class="stat-col"><span class="chip c-amber">🔄 CMS ידני</span></td>
         </tr>
@@ -378,9 +334,8 @@ tbody tr:hover td { background: #FAFAF8; }
         <tr>
           <td><div class="metric-name">תחומי עניין פופולריים</div><div class="metric-orig">Popular Interests</div></td>
           <td>אילו תחומי עניין נבחרים הכי הרבה בשאלון</td>
-          <td>—</td>
-          <td><div class="nav-path">לא ממומש — נדרש data export מ-Firestore<br><em style="color:#A83A1E">(הוגדר כ-"אובר-קיל" בשלב זה בסיכום מול גלית)</em></div></td>
-          <td class="stat-col"><span class="chip c-red">❌ לא זמין</span></td>
+          <td><div class="nav-path">app.firecms.co → Someone for Coffee<br>→ Users → עמודת Interests</div></td>
+          <td class="stat-col"><span class="chip c-amber">🔄 CMS ידני</span></td>
         </tr>
 
       </tbody>
@@ -396,6 +351,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">👥</div>
       <div class="card-name">Total Users</div>
+      <div class="card-name-he">סך המשתמשות</div>
       <div class="card-path">Executive Overview · User Growth</div>
       <div class="card-desc">סה"כ נשים שפתחו האפליקציה בתקופה שנבחרה. שים לב: לא כל מי שנפתחה אצלה האפליקציה היא בהכרח רשומה — Guest Mode נמנה גם כן.</div>
     </div>
@@ -403,13 +359,23 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">✨</div>
       <div class="card-name">New Users</div>
+      <div class="card-name-he">משתמשות חדשות</div>
       <div class="card-path">Executive Overview · User Growth</div>
       <div class="card-desc">נשים שפתחו את האפליקציה לראשונה בתקופה שנבחרה. זה המדד לגיוס: האם הקהילה גדלה?</div>
     </div>
 
     <div class="card">
+      <div class="card-emoji">⬇️</div>
+      <div class="card-name">App Downloads</div>
+      <div class="card-name-he">הורדות האפליקציה</div>
+      <div class="card-path">Executive Overview</div>
+      <div class="card-desc">פתיחה ראשונה לאחר התקנה, לפי פלטפורמה (Android / iOS). משמש כפרוקסי להורדות מהחנויות.</div>
+    </div>
+
+    <div class="card">
       <div class="card-emoji">🔥</div>
       <div class="card-name">Active Users</div>
+      <div class="card-name-he">משתמשות פעילות</div>
       <div class="card-path">Executive Overview · User Growth</div>
       <div class="card-desc">נשים שהיו פעילות (פתחו האפליקציה) בתקופה שנבחרה. ההשוואה בין Active Users לבין Total Users מראה כמה מהקהילה שוהות.</div>
     </div>
@@ -417,6 +383,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">📱</div>
       <div class="card-name">Sessions</div>
+      <div class="card-name-he">ביקורים באפליקציה</div>
       <div class="card-path">Executive Overview · User Growth</div>
       <div class="card-desc">כמה פעמים נפתחה האפליקציה בסה"כ. Session אחד = פתיחה אחת. נשים שפותחות מספר פעמים ביום תורמות מספר Sessions.</div>
     </div>
@@ -424,6 +391,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">🔀</div>
       <div class="card-name">Matches Started</div>
+      <div class="card-name-he">התאמות שהתחילו</div>
       <div class="card-path">Executive Overview · Matching Funnel</div>
       <div class="card-desc">כמה בקשות "נפגש לקפה" נשלחו. כל הודעה ראשונה בשיחה = Match Started אחד. זה קצה ה-Funnel השני אחרי הרשמה.</div>
     </div>
@@ -431,6 +399,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">🤝</div>
       <div class="card-name">Successful Matches</div>
+      <div class="card-name-he">התאמות מוצלחות</div>
       <div class="card-path">Matching Funnel</div>
       <div class="card-desc">כמה בקשות חיבור קיבלו תשובה חיובית. ה-conversion rate בין Matches Started לבין Successful Matches מראה עד כמה הפרופילים מתאימים.</div>
     </div>
@@ -438,6 +407,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">📅</div>
       <div class="card-name">Meetings Scheduled</div>
+      <div class="card-name-he">פגישות שנקבעו</div>
       <div class="card-path">Executive Overview · Meetings &amp; Ratings</div>
       <div class="card-desc">כמה פגישות קפה נקבעו דרך האפליקציה (לא כל פגישה מתקיימת). ההשוואה עם Meetings Completed מראה כמה "נפלו בדרך".</div>
     </div>
@@ -445,6 +415,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">✅</div>
       <div class="card-name">Meetings Completed</div>
+      <div class="card-name-he">פגישות שהתקיימו</div>
       <div class="card-path">Executive Overview · Meetings &amp; Ratings</div>
       <div class="card-desc">כמה פגישות קפה התקיימו בפועל — לפחות אחת מהמשתתפות לחצה "הגעתי" בסקר שאחרי הפגישה. זהו ה-KPI המרכזי של הפלטפורמה.</div>
     </div>
@@ -452,6 +423,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">💬</div>
       <div class="card-name">Messages Sent</div>
+      <div class="card-name-he">הודעות שנשלחו</div>
       <div class="card-path">Executive Overview · Chat Activity</div>
       <div class="card-desc">כמה הודעות טקסט נשלחו בין נשים בצ'אט. מדד לכמות התקשורת הפנימית — נשים שמשוחחות יותר נוטות לקבוע פגישות.</div>
     </div>
@@ -459,6 +431,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">⭐</div>
       <div class="card-name">Meeting Ratings</div>
+      <div class="card-name-he">דירוגי פגישות</div>
       <div class="card-path">Executive Overview · Meetings &amp; Ratings</div>
       <div class="card-desc">כמה דירוגים נמסרו בסקר שאחרי הפגישה. לא כל מי שנפגשה ממלאת — זה מספר הדירוגים בפועל, לא מספר הפגישות.</div>
     </div>
@@ -466,6 +439,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">🔔</div>
       <div class="card-name">Notification Open Rate</div>
+      <div class="card-name-he">אחוז פתיחת התראות</div>
       <div class="card-path">Executive Overview · Notifications</div>
       <div class="card-desc">% מהתראות Push שהובילו לפתיחת האפליקציה. 66.7% = 2 מתוך 3 התראות נפתחו. מדד לאפקטיביות ההתראות.</div>
     </div>
@@ -473,6 +447,7 @@ tbody tr:hover td { background: #FAFAF8; }
     <div class="card">
       <div class="card-emoji">🌱</div>
       <div class="card-name">Meeting Satisfaction</div>
+      <div class="card-name-he">שביעות רצון</div>
       <div class="card-path">Executive Overview · Meetings &amp; Ratings</div>
       <div class="card-desc">% פגישות שדורגו כ-"טוב" (Good). 100% = כל הדירוגים שנמסרו היו חיוביים. מדד חשוב לאיכות ה-matching.</div>
     </div>
