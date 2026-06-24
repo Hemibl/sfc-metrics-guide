@@ -17,8 +17,6 @@
   --amber-lt:#FDF3D6;
   --red:     #A83A1E;
   --red-lt:  #FCEAE4;
-  --gray:    #4B5563;
-  --gray-lt: #F3F4F6;
 
   --ff: -apple-system, 'Segoe UI', system-ui, Arial, sans-serif;
 }
@@ -60,7 +58,6 @@ body {
 .c-green  { background: var(--green-lt); color: var(--green); }
 .c-amber  { background: var(--amber-lt); color: var(--amber); }
 .c-red    { background: var(--red-lt);   color: var(--red); }
-.c-gray   { background: var(--gray-lt);  color: var(--gray); }
 
 /* ── TABLE ── */
 .tbl-wrap {
@@ -324,30 +321,6 @@ tbody tr:hover td { background: #FAFAF8; }
           <td class="stat-col"><span class="chip c-green">✅ זמין</span></td>
         </tr>
 
-        <!-- CAT: TECHNICAL & ENGAGEMENT -->
-        <tr class="cat-row"><td colspan="4">📱 נתונים טכניים ומעורבות</td></tr>
-
-        <tr>
-          <td><div class="metric-name">סוג מכשיר / מערכת הפעלה / גרסת אפליקציה / שפה</div><div class="metric-orig">Device Info</div></td>
-          <td>מאיזה סוג מכשיר ניגשות, איזו גרסת אפליקציה פעילה, ובאיזו שפה — נתונים תפעוליים שהובטחו בהצעה הראשונית</td>
-          <td><div class="nav-path">console.firebase.google.com<br>→ Analytics → Tech → Devices / App Versions</div></td>
-          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
-        </tr>
-
-        <tr>
-          <td><div class="metric-name">נתונים דמוגרפיים</div><div class="metric-orig">Demographics</div></td>
-          <td>גיל, מיקום גיאוגרפי ועוד — בכפוף להגדרות Privacy ואישורי המשתמשות</td>
-          <td><div class="nav-path">console.firebase.google.com<br>→ Analytics → Demographics</div></td>
-          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
-        </tr>
-
-        <tr>
-          <td><div class="metric-name">זמן שימוש באפליקציה</div><div class="metric-orig">Engagement Time / Avg. Session Duration</div></td>
-          <td>כמה זמן בממוצע נשים מבלות בכל פתיחה של האפליקציה — מדד מעורבות עומק שהובטח בהצעה הראשונית</td>
-          <td><div class="nav-path">console.firebase.google.com<br>→ Analytics → Engagement → Overview</div></td>
-          <td class="stat-col"><span class="chip c-amber">🔄 בטיפול</span></td>
-        </tr>
-
         <!-- CAT: CMS / MANUAL -->
         <tr class="cat-row"><td colspan="4">📋 ממשק CMS</td></tr>
 
@@ -360,9 +333,9 @@ tbody tr:hover td { background: #FAFAF8; }
 
         <tr>
           <td><div class="metric-name">תחומי עניין פופולריים</div><div class="metric-orig">Popular Interests</div></td>
-          <td>אילו תחומי עניין נבחרים הכי הרבה בשאלון — הוגדר כ-"אובר-קיל" לשלב זה בסיכום מול גלית (29.12.25)</td>
-          <td><div class="nav-path">app.firecms.co → Someone for Coffee<br>→ Users → עמודת Interests<br><em style="color:#4B5563">(ידני — אין אוטומציה, מחוץ לסקופ הנוכחי)</em></div></td>
-          <td class="stat-col"><span class="chip c-gray">⏸ מחוץ לסקופ</span></td>
+          <td>אילו תחומי עניין נבחרים הכי הרבה בשאלון</td>
+          <td><div class="nav-path">app.firecms.co → Someone for Coffee<br>→ Users → עמודת Interests</div></td>
+          <td class="stat-col"><span class="chip c-amber">🔄 CMS ידני</span></td>
         </tr>
 
       </tbody>
